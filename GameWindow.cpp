@@ -3,12 +3,6 @@
 
 bool key_state[1000];
 
-//+++
-void GameWindow::create_maincharacter()
-{
-    maincharacter = new MainCharacter(0, 400);
-}
-
 void
 GameWindow::game_play()
 {
@@ -131,7 +125,7 @@ GameWindow::process_event()
     else if(event.type == ALLEGRO_EVENT_KEY_UP)
         key_state[event.keyboard.keycode] = false;
 
-    if ((NPC_Set.size() < 3 && npc_CoolDown > 180)|| NPC_Set.size() == 0)
+    if ((NPC_Set.size() < 3 && npc_CoolDown > 360)|| NPC_Set.size() == 0)
     {
         NPC* n = create_npc();
         NPC_Set.push_back(n);
@@ -141,6 +135,11 @@ GameWindow::process_event()
 
     npc_CoolDown ++;
     return instruction;
+}
+
+void GameWindow::create_maincharacter()
+{
+    maincharacter = new MainCharacter(0, 500);
 }
 
 NPC* GameWindow :: create_npc()
@@ -172,15 +171,32 @@ GameWindow::game_begin()
 int
 GameWindow::game_update()
 {
+    bool OutOfRange = false;
+
+    if (map_x < -2300 || map_x > 0)
+    {
+        OutOfRange = true;
+        if(map_x < -2300) map_x = -2300;
+        else map_x = 0;
+    }
+
+    if (!OutOfRange)
+    {
+        map_speed = -maincharacter->GetSpeed();
+        if (map_x == -2300 || map_x == 0) map_speed /= 5;
+        map_x += map_speed;
+    }
+
+
     for(std::vector <NPC*>::iterator it = NPC_Set.begin(); it != NPC_Set.end(); it++)
         (*it)->Move();
 
-    if(key_state[ALLEGRO_KEY_LEFT])
-        maincharacter->MoveLeft();
+    if(key_state[ALLEGRO_KEY_LEFT] && key_state[ALLEGRO_KEY_RIGHT]) maincharacter->Pause();
+    else if(key_state[ALLEGRO_KEY_LEFT]) maincharacter-> MoveLeft(OutOfRange);
+    else if(key_state[ALLEGRO_KEY_RIGHT]) maincharacter-> MoveRight(OutOfRange);
+    else maincharacter-> Pause();
 
-    if(key_state[ALLEGRO_KEY_RIGHT])
-        maincharacter->MoveRight();
-
+    printf("%d\n",map_x);
 
     return GAME_CONTINUE;
 }
@@ -193,6 +209,7 @@ GameWindow::game_reset()
     //al_stop_sample_instance(startSound);
 
     /// stop timer
+    ground = al_load_bitmap("./background/street.png");
     al_stop_timer(timer);
     create_maincharacter();
 }
@@ -203,10 +220,14 @@ GameWindow::draw_running_map()
 
     al_clear_to_color(al_map_rgb(200, 120, 120));
 
-    for(std::vector <NPC*>::iterator it = NPC_Set.begin(); it != NPC_Set.end(); it++)
-        (*it)->Draw();
+    if (map_x < -2300) al_draw_bitmap(ground,-2300,map_y,0);
+    else if (map_x > 0) al_draw_bitmap(ground,0,map_y,0);
+    else al_draw_bitmap(ground,map_x,map_y,0);
 
-    maincharacter->Draw();
+    for(std::vector <NPC*>::iterator it = NPC_Set.begin(); it != NPC_Set.end(); it++)
+        (*it)->Draw(-map_x);
+
+    maincharacter->Draw(-map_x);
 
 
     al_flip_display();

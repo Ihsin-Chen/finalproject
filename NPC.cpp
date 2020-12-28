@@ -8,16 +8,21 @@ NPC :: NPC(int pos_x, int pos_y)
 
 void NPC :: Move()
 {
-    if (range->x+30 > window_width-180  && IsMovingLeft == false) IsMovingLeft = true;   /// «Ý­×§ï***********
+    if (range->x+30 > map_width-180  && IsMovingLeft == false) IsMovingLeft = true;   /// «Ý­×§ï***********
     else if(range->x - 30 < 0 && IsMovingLeft == true) IsMovingLeft = false;
 
-    if(IsMovingLeft == true) range->x -= 3;
-    else range->x += 3;
+    if(IsMovingLeft == true) range->x -= 2;
+    else range->x += 2;
 }
 
-void NPC :: Draw()
+void NPC :: Draw(int map_x)
 {
-    al_draw_bitmap(npc_img, range->x, range->y, 0);
+    if(map_x < 0) map_x = 0;
+    else if(map_x > 2300) map_x = 2300;
+
+    int x = range->x - map_x;
+
+    if (x <= 1200 && x >= -10) al_draw_bitmap(npc_img, x , range->y, 0);
 }
 
 NPC :: ~NPC()

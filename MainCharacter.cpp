@@ -1,4 +1,5 @@
 #include "MainCharacter.h"
+#include "GameWindow.h"
 
 using namespace std;
 
@@ -16,10 +17,9 @@ MainCharacter:: ~MainCharacter()
 }
 
 void
-MainCharacter::Draw()
+MainCharacter::Draw(int map_x)
 {
     al_draw_bitmap(img, circle->x, circle->y, 0);
-
 }
 
 bool
@@ -37,7 +37,7 @@ MainCharacter :: TriggerAttack(Girl* girl)
 {
     bool isDestroyed = false;
 
-    if(girl->GetHealth() < 0) isDestroyed = true;
+    if(girl-> GetHealth() < 0) isDestroyed = true;
     else
     {
         girl->BeingAttack(attack_harm_point);
@@ -45,6 +45,26 @@ MainCharacter :: TriggerAttack(Girl* girl)
     }
 
     return isDestroyed;
+}
+
+void
+MainCharacter :: MoveLeft(bool WhetherMove)
+{
+    speed = -5;
+    if(WhetherMove && circle->x >= 0) circle->x += speed;
+}
+
+void
+MainCharacter::MoveRight(bool WhetherMove)
+{
+    speed = 5;
+    if(WhetherMove && circle->x <= window_width-120) circle->x += speed;
+}
+
+void
+MainCharacter :: Pause()
+{
+    speed = 0;
 }
 
 

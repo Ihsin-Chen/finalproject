@@ -20,7 +20,7 @@ public:
         }
     }
     int GetHealth() {return health;}
-    bool BeingAttack(int harm) { health = health - harm ;}
+    void BeingAttack(int harm) { health = health - harm ;}
 };
 
 #endif // NORMAL_GIRL_H_INCLUDED

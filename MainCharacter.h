@@ -23,15 +23,19 @@ public:
     MainCharacter(int, int);
     ~MainCharacter();
 
-    void Draw();
+    void Draw(int map_x);
     //void ToggleClicked() {isClicked = !isClicked;}
 
     bool DetectAttack(Girl *girl);
     bool TriggerAttack(Girl *girl);
+    int GetSpeed() {return speed;}
+    void MoveLeft(bool WhetherMove);
+    void MoveRight(bool WhetherMove);
+    void Pause();
 
 protected:
 
-    int attack_harm_point = 10;
+    int attack_harm_point = 10, speed = 0;
     ALLEGRO_BITMAP *attack_img = al_load_bitmap(".object/flash.png");
     ALLEGRO_BITMAP *img = al_load_bitmap("./character/boy_3.png");
 };

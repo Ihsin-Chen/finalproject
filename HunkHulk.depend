@@ -12,7 +12,7 @@
 	"NPC.h"
 	"MainCharacter.h"
 
-1609071851 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
+1609167787 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -22,10 +22,10 @@
 	"Object.h"
 	"Circle.h"
 
-1520703508 c:\users\user\documents\nthu\finalproject\finalproject\object.h
+1609145740 c:\users\user\documents\nthu\finalproject\finalproject\object.h
 	"Circle.h"
 
-1609072461 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
+1609147556 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -37,14 +37,14 @@
 	"NPC.h"
 	"Girl.h"
 
-1609072461 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
+1609141808 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
 	<iostream>
 	"NPC.h"
 
 1608641802 source:c:\users\user\documents\nthu\finalproject\finalproject\main.cpp
 	"GameWindow.h"
 
-1609082765 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
+1609170229 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
 	<stdio.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -58,10 +58,11 @@
 	"MainCharacter.h"
 	"Girl.h"
 
-1609072461 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
+1609169517 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
 	"MainCharacter.h"
+	"GameWindow.h"
 
-1609061365 source:c:\users\user\documents\nthu\finalproject\finalproject\npc.cpp
+1609168282 source:c:\users\user\documents\nthu\finalproject\finalproject\npc.cpp
 	"NPC.h"
 	"GameWindow.h"
 
@@ -365,4 +366,8 @@
 1581332430 c:\users\user\documents\nthu\finalproject\finalproject\allegro\include\allegro5\allegro_acodec.h
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
+
+1609170229 source:c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.cpp
+	"GameWindow.h"
+	<iostream>
 

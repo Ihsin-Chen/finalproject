@@ -26,7 +26,7 @@
 
 #define window_width 1200
 #define window_height 800
-#define map_width 6000                                                                   ///**********
+#define map_width 3600                                                                   ///**********
 
 // clock rate
 const float FPS = 60;
@@ -74,9 +74,12 @@ private:
     ALLEGRO_SAMPLE *sample = NULL;
     ALLEGRO_SAMPLE_INSTANCE *startSound = NULL;
 
-    std::vector<NPC*> NPC_Set;                                 ///*********
+    ALLEGRO_BITMAP *ground = NULL;
+
+    std::vector<NPC*> NPC_Set;
     int npc_CoolDown = 0;
-    int npc_born_x = 1400, npc_born_y = 400;
+    int npc_born_x = map_width, npc_born_y = 400;
+    int map_x = 0, map_y = 0, map_speed;
 
     //+++
     MainCharacter* maincharacter;

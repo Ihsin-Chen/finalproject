@@ -9,7 +9,7 @@ public:
     ~Object() {}
 
     // pure function for drawing object
-    virtual void Draw() = 0;
+    virtual void Draw(int map_x) = 0;
 
     int getX() { return circle->x; }
     int getY() { return circle->y; }

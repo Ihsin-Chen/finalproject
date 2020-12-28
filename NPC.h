@@ -18,7 +18,7 @@ public:
     NPC(int,int);
     virtual ~NPC();
 
-    void Draw();
+    void Draw(int map_x);
     void Move();
 
 protected:
