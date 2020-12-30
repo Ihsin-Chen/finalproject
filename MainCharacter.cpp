@@ -1,7 +1,6 @@
 #include "MainCharacter.h"
 #include "GameWindow.h"
-
-using namespace std;
+#include "Circle.h"
 
 MainCharacter :: MainCharacter(int pos_x = 0, int pos_y = 0)
 {
@@ -23,11 +22,14 @@ MainCharacter::Draw(int map_x)
 }
 
 bool
-MainCharacter :: DetectAttack(Girl *girl)
+MainCharacter :: DetectAttack(Girl *girl,int map_x)
 {
     bool willAttack = false;
+    Circle* tmp = new Circle(girl->getX()+map_x, girl->getY(),girl->getRadius());
 
-    if(Circle::isOverlap(this->circle, girl->getCircle())) willAttack = true;
+
+    if(Circle::isOverlap(this->circle, tmp)) willAttack = true;
+    //std :: cout << getX() << " " << circle->y << " " << tmp->x << " " << tmp->y << std :: endl;
 
     return willAttack;
 }
@@ -35,30 +37,26 @@ MainCharacter :: DetectAttack(Girl *girl)
 bool
 MainCharacter :: TriggerAttack(Girl* girl)
 {
-    bool isDestroyed = false;
+    bool isDestroyed;
 
-    if(girl-> GetHealth() < 0) isDestroyed = true;
-    else
-    {
-        girl->BeingAttack(attack_harm_point);
-        al_draw_bitmap(attack_img, girl->getX() , girl->getY(),0);
-    }
+    isDestroyed = girl->BeingAttack(attack_harm_point);
+    //al_draw_bitmap(attack_img, girl->getX() , girl->getY(),0);
 
     return isDestroyed;
 }
 
 void
-MainCharacter :: MoveLeft(bool WhetherMove)
+MainCharacter :: MoveLeft(int map_x)
 {
-    speed = -5;
-    if(WhetherMove && circle->x >= 0) circle->x += speed;
+    speed = -7;
+    if((map_x <= -2300 || map_x >=0) && circle->x >= 0) circle->x += speed;
 }
 
 void
-MainCharacter::MoveRight(bool WhetherMove)
+MainCharacter::MoveRight(int map_x)
 {
-    speed = 5;
-    if(WhetherMove && circle->x <= window_width-120) circle->x += speed;
+    speed = 7;
+    if((map_x <= -2300 || map_x >=0) && circle->x <= window_width-120) circle->x += speed;
 }
 
 void

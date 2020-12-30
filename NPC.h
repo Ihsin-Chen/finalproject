@@ -23,7 +23,6 @@ public:
 
 protected:
 
-    Circle* range;
     ALLEGRO_BITMAP * npc_img;
     int health;
     int strength;

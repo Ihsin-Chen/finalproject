@@ -55,7 +55,7 @@ public:
     // process of updated event
     int process_event();
 
-    NPC* create_npc();
+    Girl* create_npc();
 
     //+++
     void create_maincharacter();
@@ -76,9 +76,9 @@ private:
 
     ALLEGRO_BITMAP *ground = NULL;
 
-    std::vector<NPC*> NPC_Set;
+    std::vector<Girl*> Girl_Set;
     int npc_CoolDown = 0;
-    int npc_born_x = map_width, npc_born_y = 400;
+    int npc_born_x = map_width, npc_born_y = 500;
     int map_x = 0, map_y = 0, map_speed;
 
     //+++

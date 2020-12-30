@@ -26,11 +26,11 @@ public:
     void Draw(int map_x);
     //void ToggleClicked() {isClicked = !isClicked;}
 
-    bool DetectAttack(Girl *girl);
+    bool DetectAttack(Girl *girl,int map_x);
     bool TriggerAttack(Girl *girl);
     int GetSpeed() {return speed;}
-    void MoveLeft(bool WhetherMove);
-    void MoveRight(bool WhetherMove);
+    void MoveLeft(int map_x);
+    void MoveRight(int map_x);
     void Pause();
 
 protected:

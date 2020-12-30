@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-bool Enemy :: DetectAttack (MainCharacter maincharacter)
+/*bool Enemy :: DetectAttack (MainCharacter maincharacter)
 {
 
-}
+}*/

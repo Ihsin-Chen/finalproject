@@ -118,17 +118,39 @@ GameWindow::process_event()
                 /*TODO: handle pause event here*/
                 if (al_get_timer_started(timer)) al_stop_timer(timer);
                 else al_start_timer(timer);
+                break;
 
+            case ALLEGRO_KEY_SPACE:
+
+            int i = 0;
+
+            for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); ++it)
+            {
+                i++;
+                Girl* girl = *it;
+                if (maincharacter->DetectAttack(*it,map_x))
+                {
+                    std :: cout << i << " " << (*it)->GetHealth() << std::endl;
+                    if(maincharacter->TriggerAttack(*it))
+                    {
+                        Girl_Set.erase(it);
+                        --it;
+                        delete(girl);
+                    }
+                    break;
+                }
+
+            }
                 break;
         }
     }
     else if(event.type == ALLEGRO_EVENT_KEY_UP)
         key_state[event.keyboard.keycode] = false;
 
-    if ((NPC_Set.size() < 3 && npc_CoolDown > 360)|| NPC_Set.size() == 0)
+    if ((Girl_Set.size() < 5 && npc_CoolDown > 360)|| Girl_Set.size() == 0)
     {
-        NPC* n = create_npc();
-        NPC_Set.push_back(n);
+        Girl* n = create_npc();
+        Girl_Set.push_back(n);
         npc_CoolDown = 0;
     }
 
@@ -142,14 +164,14 @@ void GameWindow::create_maincharacter()
     maincharacter = new MainCharacter(0, 500);
 }
 
-NPC* GameWindow :: create_npc()
+Girl* GameWindow :: create_npc()
 {
-    NPC* n = NULL;
+    Girl* n = NULL;
 
     n = new Girl(npc_born_x, npc_born_y,0);
 
-    if (npc_born_y == 400) npc_born_y += 100;
-    else if (npc_born_y == 500) npc_born_y -= 100;
+    //if (npc_born_y == 400) npc_born_y += 100;
+    //else if (npc_born_y == 500) npc_born_y -= 100;
 
     return n;
 }
@@ -188,15 +210,14 @@ GameWindow::game_update()
     }
 
 
-    for(std::vector <NPC*>::iterator it = NPC_Set.begin(); it != NPC_Set.end(); it++)
+    for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); it++)
         (*it)->Move();
 
     if(key_state[ALLEGRO_KEY_LEFT] && key_state[ALLEGRO_KEY_RIGHT]) maincharacter->Pause();
-    else if(key_state[ALLEGRO_KEY_LEFT]) maincharacter-> MoveLeft(OutOfRange);
-    else if(key_state[ALLEGRO_KEY_RIGHT]) maincharacter-> MoveRight(OutOfRange);
+    else if(key_state[ALLEGRO_KEY_LEFT]) maincharacter-> MoveLeft(map_x);
+    else if(key_state[ALLEGRO_KEY_RIGHT]) maincharacter-> MoveRight(map_x);
     else maincharacter-> Pause();
 
-    printf("%d\n",map_x);
 
     return GAME_CONTINUE;
 }
@@ -224,7 +245,7 @@ GameWindow::draw_running_map()
     else if (map_x > 0) al_draw_bitmap(ground,0,map_y,0);
     else al_draw_bitmap(ground,map_x,map_y,0);
 
-    for(std::vector <NPC*>::iterator it = NPC_Set.begin(); it != NPC_Set.end(); it++)
+    for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); it++)
         (*it)->Draw(-map_x);
 
     maincharacter->Draw(-map_x);

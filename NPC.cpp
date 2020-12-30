@@ -3,16 +3,16 @@
 
 NPC :: NPC(int pos_x, int pos_y)
 {
-    this->range = new Circle(pos_x, pos_y, 30);
+    this->circle = new Circle(pos_x, pos_y, 50);
 }
 
 void NPC :: Move()
 {
-    if (range->x+30 > map_width-180  && IsMovingLeft == false) IsMovingLeft = true;   /// «Ý­×§ï***********
-    else if(range->x - 30 < 0 && IsMovingLeft == true) IsMovingLeft = false;
+    if (circle->x+30 > map_width-180  && IsMovingLeft == false) IsMovingLeft = true;   /// «Ý­×§ï***********
+    else if(circle->x - 30 < 0 && IsMovingLeft == true) IsMovingLeft = false;
 
-    if(IsMovingLeft == true) range->x -= 2;
-    else range->x += 2;
+    if(IsMovingLeft == true) circle->x -= 2;
+    else circle->x += 2;
 }
 
 void NPC :: Draw(int map_x)
@@ -20,13 +20,13 @@ void NPC :: Draw(int map_x)
     if(map_x < 0) map_x = 0;
     else if(map_x > 2300) map_x = 2300;
 
-    int x = range->x - map_x;
+    int x = circle->x - map_x;
 
-    if (x <= 1200 && x >= -10) al_draw_bitmap(npc_img, x , range->y, 0);
+    al_draw_bitmap(npc_img, x , circle->y, 0);
 }
 
 NPC :: ~NPC()
 {
-    delete range;
+    delete circle;
     al_destroy_bitmap(npc_img);
 }
