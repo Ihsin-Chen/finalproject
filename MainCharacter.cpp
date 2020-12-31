@@ -18,7 +18,8 @@ MainCharacter:: ~MainCharacter()
 void
 MainCharacter::Draw(int map_x)
 {
-    al_draw_bitmap(img, circle->x, circle->y, 0);
+    if (!IsAttacking) al_draw_bitmap(img, circle->x, circle->y, 0);
+    else al_draw_bitmap(attack_img, circle->x, circle->y, 0);
 }
 
 bool
@@ -40,7 +41,6 @@ MainCharacter :: TriggerAttack(Girl* girl)
     bool isDestroyed;
 
     isDestroyed = girl->BeingAttack(attack_harm_point);
-    //al_draw_bitmap(attack_img, girl->getX() , girl->getY(),0);
 
     return isDestroyed;
 }

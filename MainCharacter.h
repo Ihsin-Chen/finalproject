@@ -32,11 +32,12 @@ public:
     void MoveLeft(int map_x);
     void MoveRight(int map_x);
     void Pause();
+    bool IsAttacking = false;
 
 protected:
 
-    int attack_harm_point = 10, speed = 0;
-    ALLEGRO_BITMAP *attack_img = al_load_bitmap(".object/flash.png");
+    int attack_harm_point = 1, speed = 0;
+    ALLEGRO_BITMAP *attack_img = al_load_bitmap("./character/boy_3_attack.png");
     ALLEGRO_BITMAP *img = al_load_bitmap("./character/boy_3.png");
 };
 

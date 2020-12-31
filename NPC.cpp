@@ -11,8 +11,8 @@ void NPC :: Move()
     if (circle->x+30 > map_width-180  && IsMovingLeft == false) IsMovingLeft = true;   /// «Ý­×§ï***********
     else if(circle->x - 30 < 0 && IsMovingLeft == true) IsMovingLeft = false;
 
-    if(IsMovingLeft == true) circle->x -= 2;
-    else circle->x += 2;
+    if(IsMovingLeft == true) circle->x -= speed;
+    else circle->x += speed;
 }
 
 void NPC :: Draw(int map_x)
@@ -22,7 +22,13 @@ void NPC :: Draw(int map_x)
 
     int x = circle->x - map_x;
 
-    al_draw_bitmap(npc_img, x , circle->y, 0);
+    if (!IsAttacking) al_draw_bitmap(npc_img, x , circle->y, 0);
+    else al_draw_bitmap(npc_attack, x , circle->y, 0);
+
+    if (health <= max_health*9/10 && health >= max_health*8/10) al_draw_bitmap(heart_1,x, circle->y - 150,0);
+    else if (health < max_health*8/10 && health >= max_health*6/10) al_draw_bitmap(heart_2,x, circle->y - 150,0);
+    else if (health < max_health*6/10 && health >= max_health*3/10) al_draw_bitmap(heart_3,x, circle->y - 150,0);
+    else if (health < max_health*3/10 && health >= 0)al_draw_bitmap(heart_4,x, circle->y - 150,0);
 }
 
 NPC :: ~NPC()

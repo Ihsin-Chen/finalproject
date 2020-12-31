@@ -2,6 +2,7 @@
 #define NORMAL_GIRL_H_INCLUDED
 #include<iostream>
 #include "NPC.h"
+#define COOL_DOWN_TIME 100
 
 class Girl : public NPC
 {
@@ -10,17 +11,25 @@ public:
     {
         if (IsGoodlooking)
         {
-            health = 200;
-            npc_img = al_load_bitmap("./Character/girl_4.jpg");
+            printf("Isgood\n");
+            max_health = health = 200;
+            speed = 3;
+            npc_img = al_load_bitmap("./Character/girl_5.png");
+            npc_attack = al_load_bitmap ("./Character/girl_5_attack.png");
         }
         else
         {
-            health = 100;
+            max_health = health = 100;
+            speed = 2;
             npc_img = al_load_bitmap ("./Character/girl_1.png");
+            npc_attack = al_load_bitmap ("./Character/girl_1_attack.png");
         }
     }
     int GetHealth() {return health;}
     bool BeingAttack(int harm);
+    void CoolDown();
+
+    int cool_down_cnt = 0;
 };
 
 #endif // NORMAL_GIRL_H_INCLUDED

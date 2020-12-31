@@ -120,28 +120,6 @@ GameWindow::process_event()
                 else al_start_timer(timer);
                 break;
 
-            case ALLEGRO_KEY_SPACE:
-
-            int i = 0;
-
-            for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); ++it)
-            {
-                i++;
-                Girl* girl = *it;
-                if (maincharacter->DetectAttack(*it,map_x))
-                {
-                    std :: cout << i << " " << (*it)->GetHealth() << std::endl;
-                    if(maincharacter->TriggerAttack(*it))
-                    {
-                        Girl_Set.erase(it);
-                        --it;
-                        delete(girl);
-                    }
-                    break;
-                }
-
-            }
-                break;
         }
     }
     else if(event.type == ALLEGRO_EVENT_KEY_UP)
@@ -149,7 +127,9 @@ GameWindow::process_event()
 
     if ((Girl_Set.size() < 5 && npc_CoolDown > 360)|| Girl_Set.size() == 0)
     {
-        Girl* n = create_npc();
+        Girl* n = NULL;
+        if(Score % 500 == 0 && Score && !HaveGoodLookingGirl) n = create_girl(1);
+        else n = create_girl(0);
         Girl_Set.push_back(n);
         npc_CoolDown = 0;
     }
@@ -164,11 +144,11 @@ void GameWindow::create_maincharacter()
     maincharacter = new MainCharacter(0, 500);
 }
 
-Girl* GameWindow :: create_npc()
+Girl* GameWindow :: create_girl(int IsGoodLooking)
 {
     Girl* n = NULL;
 
-    n = new Girl(npc_born_x, npc_born_y,0);
+    n = new Girl(npc_born_x, npc_born_y,IsGoodLooking);
 
     //if (npc_born_y == 400) npc_born_y += 100;
     //else if (npc_born_y == 500) npc_born_y -= 100;
@@ -211,13 +191,51 @@ GameWindow::game_update()
 
 
     for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); it++)
+    {
         (*it)->Move();
+        if((*it)->IsAttacking) (*it)->CoolDown();
+    }
+
+
 
     if(key_state[ALLEGRO_KEY_LEFT] && key_state[ALLEGRO_KEY_RIGHT]) maincharacter->Pause();
     else if(key_state[ALLEGRO_KEY_LEFT]) maincharacter-> MoveLeft(map_x);
     else if(key_state[ALLEGRO_KEY_RIGHT]) maincharacter-> MoveRight(map_x);
     else maincharacter-> Pause();
 
+    if(key_state[ALLEGRO_KEY_SPACE])
+    {
+        maincharacter->IsAttacking = true;
+            int i = 0;
+
+        for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); ++it)
+        {
+            i++;
+            Girl* girl = *it;
+            if (maincharacter->DetectAttack(*it,map_x))
+            {
+                std :: cout << i << " " << (*it)->GetHealth() << std::endl;
+                (*it)->IsAttacking = true;
+                (*it)->cool_down_cnt = 0;
+
+                if(maincharacter->TriggerAttack(*it))
+                {
+                    if ((*it)->GetSpeed() == 2) Score += 100; // Normal Girl
+                    else                                      // IsGoodLooking
+                    {
+                        Score += 300;
+                        HaveGoodLookingGirl = false;
+                    }
+                    Girl_Set.erase(it);
+                    --it;
+                    delete(girl);
+                }
+                break;
+            }
+
+        }
+    }
+    else maincharacter->IsAttacking = false;
 
     return GAME_CONTINUE;
 }
@@ -233,6 +251,7 @@ GameWindow::game_reset()
     ground = al_load_bitmap("./background/street.png");
     al_stop_timer(timer);
     create_maincharacter();
+    Score = map_speed = map_x = map_y = 0;
 }
 
 void

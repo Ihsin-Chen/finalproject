@@ -55,7 +55,7 @@ public:
     // process of updated event
     int process_event();
 
-    Girl* create_npc();
+    Girl* create_girl(int IsGoodLooking);
 
     //+++
     void create_maincharacter();
@@ -80,6 +80,8 @@ private:
     int npc_CoolDown = 0;
     int npc_born_x = map_width, npc_born_y = 500;
     int map_x = 0, map_y = 0, map_speed;
+    int Score = 0;
+    bool HaveGoodLookingGirl = false;
 
     //+++
     MainCharacter* maincharacter;

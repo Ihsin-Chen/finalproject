@@ -12,7 +12,7 @@
 	"NPC.h"
 	"MainCharacter.h"
 
-1609333048 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
+1609429213 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -25,7 +25,7 @@
 1609145740 c:\users\user\documents\nthu\finalproject\finalproject\object.h
 	"Circle.h"
 
-1609333823 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
+1609428867 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -37,14 +37,14 @@
 	"NPC.h"
 	"Girl.h"
 
-1609333145 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
+1609429213 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
 	<iostream>
 	"NPC.h"
 
 1608641802 source:c:\users\user\documents\nthu\finalproject\finalproject\main.cpp
 	"GameWindow.h"
 
-1609334821 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
+1609424967 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
 	<stdio.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -58,12 +58,12 @@
 	"MainCharacter.h"
 	"Girl.h"
 
-1609334148 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
+1609344227 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
 	"MainCharacter.h"
 	"GameWindow.h"
 	"Circle.h"
 
-1609334281 source:c:\users\user\documents\nthu\finalproject\finalproject\npc.cpp
+1609429255 source:c:\users\user\documents\nthu\finalproject\finalproject\npc.cpp
 	"NPC.h"
 	"GameWindow.h"
 
@@ -368,10 +368,10 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
 
-1609334357 source:c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.cpp
+1609429295 source:c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1609328795 source:c:\users\user\documents\nthu\finalproject\finalproject\girl.cpp
+1609346540 source:c:\users\user\documents\nthu\finalproject\finalproject\girl.cpp
 	"Girl.h"
 
