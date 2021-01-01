@@ -12,7 +12,8 @@
 #include <list>
 #include <time.h>
 #include "MainCharacter.h"
-#include "Girl.h"                                                        /// ************
+#include "Girl.h"
+#include "Enemy.h"                                                     /// ************
 
 #define GAME_INIT -1
 #define GAME_SETTING 0
@@ -56,6 +57,7 @@ public:
     int process_event();
 
     Girl* create_girl(int IsGoodLooking);
+    Enemy* create_enemy(int IsGoodLooking);
 
     //+++
     void create_maincharacter();
@@ -77,6 +79,8 @@ private:
     ALLEGRO_BITMAP *ground = NULL;
 
     std::vector<Girl*> Girl_Set;
+    std::vector<Enemy*> Enemy_Set;
+
     int npc_CoolDown = 0;
     int npc_born_x = map_width, npc_born_y = 500;
     int map_x = 0, map_y = 0, map_speed;

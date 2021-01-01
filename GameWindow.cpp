@@ -125,11 +125,21 @@ GameWindow::process_event()
     else if(event.type == ALLEGRO_EVENT_KEY_UP)
         key_state[event.keyboard.keycode] = false;
 
-    if ((Girl_Set.size() < 5 && npc_CoolDown > 360)|| Girl_Set.size() == 0)
+    if ((Girl_Set.size() < 6 && npc_CoolDown > 360)|| Girl_Set.size() == 0)
     {
         Girl* n = NULL;
-        if(Score % 500 == 0 && Score && !HaveGoodLookingGirl) n = create_girl(1);
+        Enemy* e = NULL;
+        if(Score % 500 == 0 && Score && !HaveGoodLookingGirl)
+        {
+            n = create_girl(1);
+        }
         else n = create_girl(0);
+
+        if (Enemy_Set.size() < 2)
+        {
+            e = create_enemy(0);
+            Enemy_Set.push_back(e);
+        }
         Girl_Set.push_back(n);
         npc_CoolDown = 0;
     }
@@ -141,17 +151,25 @@ GameWindow::process_event()
 
 void GameWindow::create_maincharacter()
 {
-    maincharacter = new MainCharacter(0, 500);
+    maincharacter = new MainCharacter(100, 450);
+}
+
+Enemy* GameWindow :: create_enemy(int IsGoodLooking)
+{
+    Enemy* e = new Enemy(map_width/2, 600,IsGoodLooking);
+
+    if (npc_born_x == map_width) npc_born_x -= map_width;
+    else npc_born_x += map_width;
+
+    return e;
 }
 
 Girl* GameWindow :: create_girl(int IsGoodLooking)
 {
-    Girl* n = NULL;
+    Girl* n = new Girl(npc_born_x, npc_born_y,IsGoodLooking);
 
-    n = new Girl(npc_born_x, npc_born_y,IsGoodLooking);
-
-    //if (npc_born_y == 400) npc_born_y += 100;
-    //else if (npc_born_y == 500) npc_born_y -= 100;
+    if (npc_born_x == map_width) npc_born_x -= map_width;
+    else npc_born_x += map_width;
 
     return n;
 }
@@ -193,7 +211,12 @@ GameWindow::game_update()
     for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); it++)
     {
         (*it)->Move();
-        if((*it)->IsAttacking) (*it)->CoolDown();
+        (*it)->CoolDown();
+    }
+
+    for(std::vector <Enemy*>::iterator it = Enemy_Set.begin(); it != Enemy_Set.end(); it++)
+    {
+        (*it)->Move();
     }
 
 
@@ -216,7 +239,15 @@ GameWindow::game_update()
             {
                 std :: cout << i << " " << (*it)->GetHealth() << std::endl;
                 (*it)->IsAttacking = true;
-                (*it)->cool_down_cnt = 0;
+
+                for(std::vector <Enemy*>::iterator itt = Enemy_Set.begin(); itt != Enemy_Set.end(); itt++)
+                {
+                    if ((*itt)->DetectAttack(*it,map_x))
+                    {
+                        std :: cout << "Attack " << std :: endl;
+                        (*itt)->TriggerAttack(*it);
+                    }
+                }
 
                 if(maincharacter->TriggerAttack(*it))
                 {
@@ -232,10 +263,16 @@ GameWindow::game_update()
                 }
                 break;
             }
-
         }
     }
-    else maincharacter->IsAttacking = false;
+    else
+    {
+        maincharacter->IsAttacking = false;
+        for(std::vector <Enemy*>::iterator itt = Enemy_Set.begin(); itt != Enemy_Set.end(); itt++)
+            (*itt)->StatusReset();
+        for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); ++it)
+            (*it)->StatusReset();
+    }
 
     return GAME_CONTINUE;
 }
@@ -264,10 +301,14 @@ GameWindow::draw_running_map()
     else if (map_x > 0) al_draw_bitmap(ground,0,map_y,0);
     else al_draw_bitmap(ground,map_x,map_y,0);
 
+    maincharacter->Draw(-map_x);
+
     for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); it++)
         (*it)->Draw(-map_x);
 
-    maincharacter->Draw(-map_x);
+    for(std::vector <Enemy*>::iterator it = Enemy_Set.begin(); it != Enemy_Set.end(); it++)
+        (*it)->Draw(-map_x);
+
 
 
     al_flip_display();

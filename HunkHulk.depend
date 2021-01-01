@@ -4,15 +4,15 @@
 
 1609049357 c:\users\user\documents\nthu\finalproject\finalproject\circle.h
 
-1609328803 source:c:\users\user\documents\nthu\finalproject\finalproject\enemy.cpp
+1609506808 source:c:\users\user\documents\nthu\finalproject\finalproject\enemy.cpp
 	"Enemy.h"
 
-1609072357 c:\users\user\documents\nthu\finalproject\finalproject\enemy.h
+1609507669 c:\users\user\documents\nthu\finalproject\finalproject\enemy.h
 	<iostream>
 	"NPC.h"
 	"MainCharacter.h"
 
-1609429213 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
+1609506965 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -25,7 +25,7 @@
 1609145740 c:\users\user\documents\nthu\finalproject\finalproject\object.h
 	"Circle.h"
 
-1609428867 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
+1609507408 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -37,14 +37,14 @@
 	"NPC.h"
 	"Girl.h"
 
-1609429213 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
+1609507460 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
 	<iostream>
 	"NPC.h"
 
 1608641802 source:c:\users\user\documents\nthu\finalproject\finalproject\main.cpp
 	"GameWindow.h"
 
-1609424967 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
+1609494742 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
 	<stdio.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -57,13 +57,14 @@
 	<time.h>
 	"MainCharacter.h"
 	"Girl.h"
+	"Enemy.h"
 
 1609344227 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
 	"MainCharacter.h"
 	"GameWindow.h"
 	"Circle.h"
 
-1609429255 source:c:\users\user\documents\nthu\finalproject\finalproject\npc.cpp
+1609506965 source:c:\users\user\documents\nthu\finalproject\finalproject\npc.cpp
 	"NPC.h"
 	"GameWindow.h"
 
@@ -368,10 +369,10 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
 
-1609429295 source:c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.cpp
+1609507700 source:c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1609346540 source:c:\users\user\documents\nthu\finalproject\finalproject\girl.cpp
+1609505293 source:c:\users\user\documents\nthu\finalproject\finalproject\girl.cpp
 	"Girl.h"
 

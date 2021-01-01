@@ -43,6 +43,7 @@
 		<Unit filename="Enemy.h" />
 		<Unit filename="GameWindow.cpp" />
 		<Unit filename="GameWindow.h" />
+		<Unit filename="Girl.cpp" />
 		<Unit filename="Girl.h" />
 		<Unit filename="MainCharacter.cpp" />
 		<Unit filename="MainCharacter.h" />

@@ -49,14 +49,14 @@ void
 MainCharacter :: MoveLeft(int map_x)
 {
     speed = -7;
-    if((map_x <= -2300 || map_x >=0) && circle->x >= 0) circle->x += speed;
+    if((map_x <= -2300 || map_x >=0) && circle->x >= 300) circle->x += speed;
 }
 
 void
 MainCharacter::MoveRight(int map_x)
 {
     speed = 7;
-    if((map_x <= -2300 || map_x >=0) && circle->x <= window_width-120) circle->x += speed;
+    if((map_x <= -2300 || map_x >=0) && circle->x <= window_width-300) circle->x += speed;
 }
 
 void

@@ -36,7 +36,7 @@ public:
 
 protected:
 
-    int attack_harm_point = 1, speed = 0;
+    int attack_harm_point = 4, speed = 0;
     ALLEGRO_BITMAP *attack_img = al_load_bitmap("./character/boy_3_attack.png");
     ALLEGRO_BITMAP *img = al_load_bitmap("./character/boy_3.png");
 };

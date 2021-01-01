@@ -20,13 +20,15 @@ public:
 
     void Draw(int map_x);
     void Move();
-    bool IsAttacking = false;
+    bool IsAttacking = false, PreparingAttack = false;
     int GetSpeed() {return speed;}
+    void StatusReset();
 
 protected:
 
     ALLEGRO_BITMAP * npc_img;
     ALLEGRO_BITMAP * npc_attack;
+    ALLEGRO_BITMAP * npc_prepare;
     ALLEGRO_BITMAP * heart_1 = al_load_bitmap("./Character/heart_1.png");
     ALLEGRO_BITMAP * heart_2 = al_load_bitmap("./Character/heart_2.png");
     ALLEGRO_BITMAP * heart_3 = al_load_bitmap("./Character/heart_3.png");
@@ -35,6 +37,7 @@ protected:
     int health,speed,max_health;
     int strength;
     bool IsMovingLeft = 1;
+    int AttackCountDown = 20;
 };
 
 

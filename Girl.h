@@ -11,15 +11,14 @@ public:
     {
         if (IsGoodlooking)
         {
-            printf("Isgood\n");
-            max_health = health = 200;
+            max_health = health = 400;
             speed = 3;
             npc_img = al_load_bitmap("./Character/girl_5.png");
             npc_attack = al_load_bitmap ("./Character/girl_5_attack.png");
         }
         else
         {
-            max_health = health = 100;
+            max_health = health = 300;
             speed = 2;
             npc_img = al_load_bitmap ("./Character/girl_1.png");
             npc_attack = al_load_bitmap ("./Character/girl_1_attack.png");
@@ -27,6 +26,7 @@ public:
     }
     int GetHealth() {return health;}
     bool BeingAttack(int harm);
+    bool BeingHealed(int heal);
     void CoolDown();
 
     int cool_down_cnt = 0;
