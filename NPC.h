@@ -27,6 +27,7 @@ public:
 protected:
 
     ALLEGRO_BITMAP * npc_img;
+    ALLEGRO_BITMAP * npc_img_l;
     ALLEGRO_BITMAP * npc_attack;
     ALLEGRO_BITMAP * npc_prepare;
     ALLEGRO_BITMAP * heart_1 = al_load_bitmap("./Character/heart_1.png");

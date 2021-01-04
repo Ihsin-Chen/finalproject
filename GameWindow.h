@@ -1,7 +1,7 @@
 #ifndef GAMEWINDOW_H_INCLUDED
 #define GAMEWINDOW_H_INCLUDED
 
-#include <stdio.h>                                                             ///*************
+#include <stdio.h>
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_font.h>
@@ -11,9 +11,12 @@
 #include <vector>
 #include <list>
 #include <time.h>
+#include "NPC.h"
 #include "MainCharacter.h"
 #include "Girl.h"
-#include "Enemy.h"                                                     /// ************
+#include "Enemy.h"
+#include "TerminateSet.h"
+#include "Cursor.h"
 
 #define GAME_INIT -1
 #define GAME_SETTING 0
@@ -27,7 +30,8 @@
 
 #define window_width 1200
 #define window_height 800
-#define map_width 3600                                                                   ///**********
+#define map_width 3600
+#define TIME_LEFT 3600                                                                 ///**********
 
 // clock rate
 const float FPS = 60;
@@ -52,9 +56,12 @@ public:
 
     // each drawing scene function
     void draw_running_map();
+    void draw_terminate_map();
+    void draw_setting_map();
 
     // process of updated event
     int process_event();
+    int Game_Status = GAME_SETTING;
 
     Girl* create_girl(int IsGoodLooking);
     Enemy* create_enemy(int IsGoodLooking);
@@ -77,18 +84,23 @@ private:
     ALLEGRO_SAMPLE_INSTANCE *startSound = NULL;
 
     ALLEGRO_BITMAP *ground = NULL;
+    ALLEGRO_BITMAP *start = NULL;
+    ALLEGRO_BITMAP *cur = NULL;
+    const ALLEGRO_FONT *font;
 
     std::vector<Girl*> Girl_Set;
     std::vector<Enemy*> Enemy_Set;
 
     int npc_CoolDown = 0;
-    int npc_born_x = map_width, npc_born_y = 500;
+    int npc_born_x = map_width, npc_born_y = 550;
     int map_x = 0, map_y = 0, map_speed;
-    int Score = 0;
+    int Score = 0, Time_Left = TIME_LEFT;
     bool HaveGoodLookingGirl = false;
 
     //+++
     MainCharacter* maincharacter;
+    TerminateSet* terminate;
+    Cursor* cursor;
 
 };
 

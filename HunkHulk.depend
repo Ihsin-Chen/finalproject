@@ -44,7 +44,7 @@
 1608641802 source:c:\users\user\documents\nthu\finalproject\finalproject\main.cpp
 	"GameWindow.h"
 
-1609494742 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
+1609763847 c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.h
 	<stdio.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -55,11 +55,14 @@
 	<vector>
 	<list>
 	<time.h>
+	"NPC.h"
 	"MainCharacter.h"
 	"Girl.h"
 	"Enemy.h"
+	"TerminateSet.h"
+	"Cursor.h"
 
-1609344227 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
+1609659363 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
 	"MainCharacter.h"
 	"GameWindow.h"
 	"Circle.h"
@@ -369,10 +372,24 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
 
-1609507700 source:c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.cpp
+1609763813 source:c:\users\user\documents\nthu\finalproject\finalproject\gamewindow.cpp
 	"GameWindow.h"
 	<iostream>
 
 1609505293 source:c:\users\user\documents\nthu\finalproject\finalproject\girl.cpp
 	"Girl.h"
+
+1609760643 c:\users\user\documents\nthu\finalproject\finalproject\terminateset.h
+	"GameWindow.h"
+
+1609758081 source:c:\users\user\documents\nthu\finalproject\finalproject\terminateset.cpp
+	"TerminateSet.h"
+
+1609762929 c:\users\user\documents\nthu\finalproject\finalproject\cursor.h
+	"Circle.h"
+	"Object.h"
+
+1609763568 source:c:\users\user\documents\nthu\finalproject\finalproject\cursor.cpp
+	"Cursor.h"
+	<iostream>
 

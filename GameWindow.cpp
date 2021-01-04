@@ -79,6 +79,7 @@ GameWindow::GameWindow()
     al_register_event_source(event_queue, al_get_mouse_event_source());
 
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
+    Game_Status = GAME_SETTING;
 
     game_init();
 }
@@ -86,6 +87,10 @@ GameWindow::GameWindow()
 void
 GameWindow::game_init()
 {
+    ground = al_load_bitmap("./background/street.png");
+    font = al_load_ttf_font("pirulen.ttf",40,0);
+    start = al_load_bitmap("./background/start_map.png");
+    cur = al_load_bitmap("./character/cursor.png");
 
     /// load image and sound
 }
@@ -98,52 +103,114 @@ GameWindow::process_event()
 
     al_wait_for_event(event_queue, &event);
 
-    if(event.type == ALLEGRO_EVENT_TIMER)
-    {
-        if(event.timer.source == timer)
-        {
-            instruction = game_update();
-            draw_running_map();
-            /// to do when timer edges come
-        }
-    }
-    else if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+    if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
         return GAME_EXIT;
     }
-    else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
-        key_state[event.keyboard.keycode] = true;
-        switch(event.keyboard.keycode)
-        {
-            case ALLEGRO_KEY_P:
-                /*TODO: handle pause event here*/
-                if (al_get_timer_started(timer)) al_stop_timer(timer);
-                else al_start_timer(timer);
-                break;
 
-        }
-    }
-    else if(event.type == ALLEGRO_EVENT_KEY_UP)
-        key_state[event.keyboard.keycode] = false;
-
-    if ((Girl_Set.size() < 6 && npc_CoolDown > 360)|| Girl_Set.size() == 0)
+    if(Game_Status == GAME_SETTING)
     {
-        Girl* n = NULL;
-        Enemy* e = NULL;
-        if(Score % 500 == 0 && Score && !HaveGoodLookingGirl)
-        {
-            n = create_girl(1);
-        }
-        else n = create_girl(0);
+        if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
+            key_state[event.keyboard.keycode] = true;
+            switch(event.keyboard.keycode)
+            {
+                case ALLEGRO_KEY_ENTER:
+                    if (cursor->getX() == 100)
+                        ground = al_load_bitmap("./background/street.png");
+                    else if (cursor->getX() == 450)
+                        ground = al_load_bitmap("./background/school.png");
+                    else ground = al_load_bitmap("./background/farm.png");
 
-        if (Enemy_Set.size() < 2)
-        {
-            e = create_enemy(0);
-            Enemy_Set.push_back(e);
+                    al_start_timer(timer);
+                    Game_Status = GAME_CONTINUE;
+                    break;
+                case ALLEGRO_KEY_LEFT:
+                    cursor->Move_Left();
+                    break;
+                case ALLEGRO_KEY_RIGHT:
+                    cursor->Move_Right();
+                    break;
+            }
         }
-        Girl_Set.push_back(n);
-        npc_CoolDown = 0;
+        else if (event.type == ALLEGRO_EVENT_KEY_UP)
+        key_state[event.keyboard.keycode] = false;
+        draw_setting_map();
     }
 
+    else if (Game_Status == GAME_CONTINUE)
+    {
+        if(event.type == ALLEGRO_EVENT_TIMER)
+        {
+            if(event.timer.source == timer)
+            {
+                instruction = game_update();
+                draw_running_map();
+                /// to do when timer edges come
+            }
+        }
+        else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
+            key_state[event.keyboard.keycode] = true;
+            switch(event.keyboard.keycode)
+            {
+                case ALLEGRO_KEY_P:
+                    /*TODO: handle pause event here*/
+                    if (al_get_timer_started(timer)) al_stop_timer(timer);
+                    else al_start_timer(timer);
+                    break;
+                case ALLEGRO_KEY_ESCAPE:
+                    Game_Status = GAME_SETTING;
+                    game_reset();
+                    al_stop_timer(timer);
+            }
+        }
+        else if(event.type == ALLEGRO_EVENT_KEY_UP)
+            key_state[event.keyboard.keycode] = false;
+
+        if ((Girl_Set.size() < 6 && npc_CoolDown > 240)|| Girl_Set.size() == 0)
+        {
+            Girl* n = NULL;
+            Enemy* e = NULL;
+            if(Score % 500 == 0 && Score && !HaveGoodLookingGirl)
+            {
+                n = create_girl(1);
+            }
+            else n = create_girl(0);
+
+            if (Enemy_Set.size() < 3 && Score >= 300)
+            {
+                e = create_enemy(0);
+                Enemy_Set.push_back(e);
+            }
+            Girl_Set.push_back(n);
+            npc_CoolDown = 0;
+        }
+
+        if (Time_Left <= 0)
+        {
+            Game_Status = GAME_TERMINATE;
+            terminate = new TerminateSet(Score);
+        }
+
+    }
+
+    if (Game_Status == GAME_TERMINATE)
+    {
+        draw_terminate_map();
+        al_stop_timer(timer);
+
+        if (event.type == ALLEGRO_EVENT_KEY_DOWN)
+        {
+            key_state[event.keyboard.keycode] = true;
+            switch(event.keyboard.keycode)
+            {
+                case ALLEGRO_KEY_ENTER:
+                    game_reset();
+                    Game_Status = GAME_SETTING;
+                    break;
+            }
+        }
+        else if (event.type == ALLEGRO_EVENT_KEY_UP)
+        key_state[event.keyboard.keycode] = false;
+    }
 
     npc_CoolDown ++;
     return instruction;
@@ -156,10 +223,10 @@ void GameWindow::create_maincharacter()
 
 Enemy* GameWindow :: create_enemy(int IsGoodLooking)
 {
-    Enemy* e = new Enemy(map_width/2, 600,IsGoodLooking);
+    Enemy* e = new Enemy(npc_born_x, 600,IsGoodLooking);
 
-    if (npc_born_x == map_width) npc_born_x -= map_width;
-    else npc_born_x += map_width;
+    // if (npc_born_x == map_width) npc_born_x -= map_width;
+    // else npc_born_x += map_width;
 
     return e;
 }
@@ -179,13 +246,13 @@ GameWindow::game_begin()
 {
     printf(">>> Start\n");
 
-    draw_running_map();
+    draw_setting_map();
 
     //al_play_sample_instance(startSound);
     //while(al_get_sample_instance_playing(startSound));
     //al_play_sample_instance(backgroundSound);
 
-    al_start_timer(timer);
+    //al_start_timer(timer);
 }
 
 int
@@ -274,6 +341,7 @@ GameWindow::game_update()
             (*it)->StatusReset();
     }
 
+    Time_Left--;
     return GAME_CONTINUE;
 }
 
@@ -285,10 +353,14 @@ GameWindow::game_reset()
     //al_stop_sample_instance(startSound);
 
     /// stop timer
-    ground = al_load_bitmap("./background/street.png");
+
     al_stop_timer(timer);
     create_maincharacter();
+    cursor = new Cursor(100,200);
     Score = map_speed = map_x = map_y = 0;
+    Time_Left = TIME_LEFT;
+    Girl_Set.clear();
+    Enemy_Set.clear();
 }
 
 void
@@ -309,15 +381,42 @@ GameWindow::draw_running_map()
     for(std::vector <Enemy*>::iterator it = Enemy_Set.begin(); it != Enemy_Set.end(); it++)
         (*it)->Draw(-map_x);
 
+    al_draw_filled_rectangle(1150, 100 + (TIME_LEFT - Time_Left) * 600 / TIME_LEFT, 1180, 700, al_map_rgb(164,30,34));
+
 
 
     al_flip_display();
 }
 
+void
+GameWindow::draw_terminate_map()
+{
+    al_clear_to_color(al_map_rgb(200, 120, 120));
+    terminate->Draw();
+
+    al_flip_display();
+}
+
+void
+GameWindow::draw_setting_map()
+{
+    int x = cursor->getX();
+    int y = cursor->getY();
+    al_clear_to_color(al_map_rgb(200, 120, 120));
+    al_draw_bitmap(start,0,0,0);
+    al_draw_bitmap(cur,x,y,0);
+
+    al_flip_display();
+}
+
+
 
 void
 GameWindow::game_destroy()
 {
+    delete(terminate);
+    al_destroy_bitmap(start);
+    al_destroy_bitmap(ground);
     game_reset();
 
 }

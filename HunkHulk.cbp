@@ -39,6 +39,8 @@
 		</Compiler>
 		<Unit filename="Circle.cpp" />
 		<Unit filename="Circle.h" />
+		<Unit filename="Cursor.cpp" />
+		<Unit filename="Cursor.h" />
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
 		<Unit filename="GameWindow.cpp" />
@@ -50,6 +52,8 @@
 		<Unit filename="NPC.cpp" />
 		<Unit filename="NPC.h" />
 		<Unit filename="Object.h" />
+		<Unit filename="TerminateSet.cpp" />
+		<Unit filename="TerminateSet.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

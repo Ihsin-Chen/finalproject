@@ -4,7 +4,7 @@
 
 MainCharacter :: MainCharacter(int pos_x = 0, int pos_y = 0)
 {
-    this->circle = new Circle (pos_x, pos_y, 50);
+    this->circle = new Circle (pos_x, pos_y, 100);
 }
 
 MainCharacter:: ~MainCharacter()
