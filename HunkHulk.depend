@@ -12,7 +12,7 @@
 	"NPC.h"
 	"MainCharacter.h"
 
-1609506965 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
+1609764249 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -25,7 +25,7 @@
 1609145740 c:\users\user\documents\nthu\finalproject\finalproject\object.h
 	"Circle.h"
 
-1609507408 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
+1609768125 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -37,7 +37,7 @@
 	"NPC.h"
 	"Girl.h"
 
-1609507460 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
+1609767602 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
 	<iostream>
 	"NPC.h"
 
@@ -62,7 +62,7 @@
 	"TerminateSet.h"
 	"Cursor.h"
 
-1609659363 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
+1609768125 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
 	"MainCharacter.h"
 	"GameWindow.h"
 	"Circle.h"
