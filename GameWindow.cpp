@@ -92,6 +92,8 @@ GameWindow::game_init()
     start = al_load_bitmap("./background/start_map.png");
     cur = al_load_bitmap("./character/cursor.png");
 
+    menu = new Menu();
+
     /// load image and sound
 }
 
@@ -119,7 +121,6 @@ GameWindow::process_event()
                     else if (cursor->getX() == 450)
                         ground = al_load_bitmap("./background/school.png");
                     else ground = al_load_bitmap("./background/farm.png");
-
                     al_start_timer(timer);
                     Game_Status = GAME_CONTINUE;
                     break;
@@ -169,13 +170,14 @@ GameWindow::process_event()
         {
             Girl* n = NULL;
             Enemy* e = NULL;
-            if(Score % 500 == 0 && Score && !HaveGoodLookingGirl)
+            if(menu->getScore() % 500 == 0 && menu->getScore() && !HaveGoodLookingGirl)
             {
                 n = create_girl(1);
+                HaveGoodLookingGirl = true;
             }
             else n = create_girl(0);
 
-            if (Enemy_Set.size() < 3 && Score >= 300)
+            if (Enemy_Set.size() < 3 && menu->getScore() >= 300)
             {
                 e = create_enemy(0);
                 Enemy_Set.push_back(e);
@@ -184,10 +186,16 @@ GameWindow::process_event()
             npc_CoolDown = 0;
         }
 
+        if(!(menu->getScore() % 700)&& menu->getScore() && !HaveMaster)
+        {
+            master = create_master();
+            HaveMaster = true;
+        }
+
         if (Time_Left <= 0)
         {
             Game_Status = GAME_TERMINATE;
-            terminate = new TerminateSet(Score);
+            terminate = new TerminateSet(menu->getScore());
         }
 
     }
@@ -241,6 +249,12 @@ Girl* GameWindow :: create_girl(int IsGoodLooking)
     return n;
 }
 
+Master* GameWindow :: create_master()
+{
+    Master *m = new Master(npc_born_x, 450);
+    return m;
+}
+
 void
 GameWindow::game_begin()
 {
@@ -252,7 +266,12 @@ GameWindow::game_begin()
     //while(al_get_sample_instance_playing(startSound));
     //al_play_sample_instance(backgroundSound);
 
+//<<<<<<< HEAD
+    al_start_timer(timer);
+
+//=======
     //al_start_timer(timer);
+//>>>>>>> d183356cbe186e7e4902099af4627d7e2768fb48
 }
 
 int
@@ -286,14 +305,23 @@ GameWindow::game_update()
         (*it)->Move();
     }
 
+    if(HaveMaster) master->Move();
 
+    if(HaveMaster)
+    {
+        if(master->DetectAttack(maincharacter, map_x))
+        {
+        master->TriggerAttack(maincharacter);
+        FreezeTime = 100;
+        }
+    }
 
     if(key_state[ALLEGRO_KEY_LEFT] && key_state[ALLEGRO_KEY_RIGHT]) maincharacter->Pause();
-    else if(key_state[ALLEGRO_KEY_LEFT]) maincharacter-> MoveLeft(map_x);
-    else if(key_state[ALLEGRO_KEY_RIGHT]) maincharacter-> MoveRight(map_x);
+    else if(key_state[ALLEGRO_KEY_LEFT] && !maincharacter->Freeze) maincharacter-> MoveLeft(map_x);
+    else if(key_state[ALLEGRO_KEY_RIGHT] && !maincharacter->Freeze) maincharacter-> MoveRight(map_x);
     else maincharacter-> Pause();
 
-    if(key_state[ALLEGRO_KEY_SPACE])
+    if(key_state[ALLEGRO_KEY_SPACE] && !maincharacter->Freeze)
     {
         maincharacter->IsAttacking = true;
             int i = 0;
@@ -318,10 +346,15 @@ GameWindow::game_update()
 
                 if(maincharacter->TriggerAttack(*it))
                 {
-                    if ((*it)->GetSpeed() == 2) Score += 100; // Normal Girl
+                    if ((*it)->GetSpeed() == 2) // Normal Girl
+                    {
+                        menu->Change_Coin(10);
+                        menu->Gain_Score(100);
+                    }
                     else                                      // IsGoodLooking
                     {
-                        Score += 300;
+                        menu->Change_Coin(30);
+                        menu->Gain_Score(300);
                         HaveGoodLookingGirl = false;
                     }
                     Girl_Set.erase(it);
@@ -340,7 +373,10 @@ GameWindow::game_update()
         for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); ++it)
             (*it)->StatusReset();
     }
-
+    if(FreezeTime > 0)
+        FreezeTime--;
+    else
+        maincharacter->Freeze = false;
     Time_Left--;
     return GAME_CONTINUE;
 }
@@ -355,12 +391,13 @@ GameWindow::game_reset()
     /// stop timer
 
     al_stop_timer(timer);
-    create_maincharacter();
     cursor = new Cursor(100,200);
-    Score = map_speed = map_x = map_y = 0;
+    create_maincharacter();
+    map_speed = map_x = map_y = 0;
     Time_Left = TIME_LEFT;
     Girl_Set.clear();
     Enemy_Set.clear();
+    menu->Reset();
 }
 
 void
@@ -381,9 +418,11 @@ GameWindow::draw_running_map()
     for(std::vector <Enemy*>::iterator it = Enemy_Set.begin(); it != Enemy_Set.end(); it++)
         (*it)->Draw(-map_x);
 
+    if(HaveMaster) master->Draw(-map_x);
+
     al_draw_filled_rectangle(1150, 100 + (TIME_LEFT - Time_Left) * 600 / TIME_LEFT, 1180, 700, al_map_rgb(164,30,34));
 
-
+    menu->Draw(-map_x);
 
     al_flip_display();
 }
@@ -414,9 +453,14 @@ GameWindow::draw_setting_map()
 void
 GameWindow::game_destroy()
 {
-    delete(terminate);
+    delete terminate;
+    if(HaveMaster)
+        delete master;
+    delete maincharacter;
     al_destroy_bitmap(start);
     al_destroy_bitmap(ground);
     game_reset();
+
+    delete menu;
 
 }

@@ -17,6 +17,8 @@
 #include "Enemy.h"
 #include "TerminateSet.h"
 #include "Cursor.h"
+#include "Menu.h"
+#include "Master.h"
 
 #define GAME_INIT -1
 #define GAME_SETTING 0
@@ -69,6 +71,8 @@ public:
     //+++
     void create_maincharacter();
 
+    Master* create_master();
+
 
 public:
     bool initial = true;
@@ -88,16 +92,21 @@ private:
     ALLEGRO_BITMAP *cur = NULL;
     const ALLEGRO_FONT *font;
 
+    Menu *menu = NULL;
+
     std::vector<Girl*> Girl_Set;
     std::vector<Enemy*> Enemy_Set;
 
     int npc_CoolDown = 0;
     int npc_born_x = map_width, npc_born_y = 550;
     int map_x = 0, map_y = 0, map_speed;
-    int Score = 0, Time_Left = TIME_LEFT;
+    int Time_Left = TIME_LEFT;
     bool HaveGoodLookingGirl = false;
+    bool HaveMaster = false;
+    int FreezeTime = 0;
 
     //+++
+    Master *master;
     MainCharacter* maincharacter;
     TerminateSet* terminate;
     Cursor* cursor;

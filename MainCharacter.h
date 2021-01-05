@@ -32,16 +32,14 @@ public:
     void MoveLeft(int map_x);
     void MoveRight(int map_x);
     void Pause();
+    bool Freeze = false;
     bool IsAttacking = false;
-    bool IsMovingLeft = false;
 
 protected:
 
     int attack_harm_point = 4, speed = 0;
     ALLEGRO_BITMAP *attack_img = al_load_bitmap("./character/boy_3_attack.png");
-    ALLEGRO_BITMAP *attack_img_right = al_load_bitmap("./character/boy_3_attack_right.png");
     ALLEGRO_BITMAP *img = al_load_bitmap("./character/boy_3.png");
-    ALLEGRO_BITMAP *right_img = al_load_bitmap("./character/boy_3_right.png");
 };
 
 

@@ -13,7 +13,7 @@ public:
         {
             max_health = health = 400;
             speed = 3;
-            npc_img = al_load_bitmap("./Character/girl_5_.png");
+            npc_img = al_load_bitmap("./Character/girl_5.png");
             npc_attack = al_load_bitmap ("./Character/girl_5_attack.png");
         }
         else

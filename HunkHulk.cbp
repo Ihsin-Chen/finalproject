@@ -34,7 +34,6 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="../allegro/include" />
 			<Add directory="allegro/include" />
 		</Compiler>
 		<Unit filename="Circle.cpp" />
@@ -49,6 +48,10 @@
 		<Unit filename="Girl.h" />
 		<Unit filename="MainCharacter.cpp" />
 		<Unit filename="MainCharacter.h" />
+		<Unit filename="Master.cpp" />
+		<Unit filename="Master.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="NPC.cpp" />
 		<Unit filename="NPC.h" />
 		<Unit filename="Object.h" />

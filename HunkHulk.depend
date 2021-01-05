@@ -12,7 +12,7 @@
 	"NPC.h"
 	"MainCharacter.h"
 
-1609764249 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
+1609506965 c:\users\user\documents\nthu\finalproject\finalproject\npc.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -25,7 +25,7 @@
 1609145740 c:\users\user\documents\nthu\finalproject\finalproject\object.h
 	"Circle.h"
 
-1609768125 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
+1609507408 c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -37,7 +37,7 @@
 	"NPC.h"
 	"Girl.h"
 
-1609767602 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
+1609507460 c:\users\user\documents\nthu\finalproject\finalproject\girl.h
 	<iostream>
 	"NPC.h"
 
@@ -62,7 +62,7 @@
 	"TerminateSet.h"
 	"Cursor.h"
 
-1609768125 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
+1609659363 source:c:\users\user\documents\nthu\finalproject\finalproject\maincharacter.cpp
 	"MainCharacter.h"
 	"GameWindow.h"
 	"Circle.h"
@@ -379,6 +379,392 @@
 1609505293 source:c:\users\user\documents\nthu\finalproject\finalproject\girl.cpp
 	"Girl.h"
 
+1609505293 D
+
+1609170756 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\circle.cpp
+	"Circle.h"
+
+1609170756 c:\users\Ã¹¶@¤å\hello-git\finalproject\circle.h
+
+1609512210 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\enemy.cpp
+	"Enemy.h"
+
+1609512210 c:\users\Ã¹¶@¤å\hello-git\finalproject\enemy.h
+	<iostream>
+	"NPC.h"
+	"MainCharacter.h"
+
+1609848800 c:\users\Ã¹¶@¤å\hello-git\finalproject\npc.h
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	"Object.h"
+	"Circle.h"
+
+1609848800 c:\users\Ã¹¶@¤å\hello-git\finalproject\object.h
+	"Circle.h"
+
+1609850162 c:\users\Ã¹¶@¤å\hello-git\finalproject\maincharacter.h
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	"Object.h"
+	"Circle.h"
+	"NPC.h"
+	"Girl.h"
+
+1609512210 c:\users\Ã¹¶@¤å\hello-git\finalproject\girl.h
+	<iostream>
+	"NPC.h"
+
+1609512210 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\girl.cpp
+	"Girl.h"
+
+1609170757 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\main.cpp
+	"GameWindow.h"
+
+1609850076 c:\users\Ã¹¶@¤å\hello-git\finalproject\gamewindow.h
+	<stdio.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_image.h>
+	<vector>
+	<list>
+	<time.h>
+	"NPC.h"
+	"MainCharacter.h"
+	"Girl.h"
+	"Enemy.h"
+	"TerminateSet.h"
+	"Cursor.h"
+	"Menu.h"
+	"Master.h"
+
+1609828883 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\maincharacter.cpp
+	"MainCharacter.h"
+	"GameWindow.h"
+	"Circle.h"
+
+1609512210 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\npc.cpp
+	"NPC.h"
+	"GameWindow.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\allegro.h
+	"allegro5/base.h"
+	"allegro5/altime.h"
+	"allegro5/bitmap.h"
+	"allegro5/bitmap_draw.h"
+	"allegro5/bitmap_io.h"
+	"allegro5/bitmap_lock.h"
+	"allegro5/blender.h"
+	"allegro5/clipboard.h"
+	"allegro5/color.h"
+	"allegro5/config.h"
+	"allegro5/cpu.h"
+	"allegro5/debug.h"
+	"allegro5/display.h"
+	"allegro5/drawing.h"
+	"allegro5/error.h"
+	"allegro5/events.h"
+	"allegro5/file.h"
+	"allegro5/fixed.h"
+	"allegro5/fmaths.h"
+	"allegro5/fshook.h"
+	"allegro5/fullscreen_mode.h"
+	"allegro5/haptic.h"
+	"allegro5/joystick.h"
+	"allegro5/keyboard.h"
+	"allegro5/memory.h"
+	"allegro5/monitor.h"
+	"allegro5/mouse.h"
+	"allegro5/mouse_cursor.h"
+	"allegro5/path.h"
+	"allegro5/render_state.h"
+	"allegro5/shader.h"
+	"allegro5/system.h"
+	"allegro5/threads.h"
+	"allegro5/timer.h"
+	"allegro5/tls.h"
+	"allegro5/touch_input.h"
+	"allegro5/transformations.h"
+	"allegro5/utf8.h"
+	"allegro5/alcompat.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\base.h
+	<errno.h>
+	<limits.h>
+	<limits.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<sys/types.h>
+	<fortify/fortify.h>
+	<dmalloc.h>
+	"allegro5/internal/alconfig.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\internal\alconfig.h
+	"allegro5/platform/alplatf.h"
+	"allegro5/platform/alwatcom.h"
+	"allegro5/platform/almngw32.h"
+	"allegro5/platform/albcc32.h"
+	"allegro5/platform/almsvc.h"
+	"allegro5/platform/aliphonecfg.h"
+	"allegro5/platform/alosxcfg.h"
+	"allegro5/platform/alandroidcfg.h"
+	"allegro5/platform/alraspberrypicfg.h"
+	"allegro5/platform/alucfg.h"
+	"allegro5/platform/allegro_sdl_config.h"
+	"allegro5/platform/astdint.h"
+	"allegro5/platform/astdbool.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\alplatf.h
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\alwatcom.h
+	<io.h>
+	<i86.h>
+	<conio.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\almngw32.h
+	<io.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+	"allegro5/platform/alplatf.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\albcc32.h
+	<io.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\almsvc.h
+	<io.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+	"allegro5/platform/alplatf.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\aliphonecfg.h
+	<fcntl.h>
+	<unistd.h>
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\alosxcfg.h
+	"allegro5/platform/alplatf.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\alandroidcfg.h
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\alraspberrypicfg.h
+	<fcntl.h>
+	<unistd.h>
+	<sys/types.h>
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\alucfg.h
+	<fcntl.h>
+	<unistd.h>
+	"alunix.h"
+	"allegro5/platform/alplatf.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\alunix.h
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\allegro_sdl_config.h
+	<fcntl.h>
+	<unistd.h>
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\astdint.h
+	<inttypes.h>
+	<stdint.h>
+	<limits.h>
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\platform\astdbool.h
+	<stdbool.h>
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\altime.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\bitmap.h
+	"allegro5/color.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\color.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\bitmap_draw.h
+	"allegro5/bitmap.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\bitmap_io.h
+	"allegro5/bitmap.h"
+	"allegro5/file.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\file.h
+	"allegro5/base.h"
+	"allegro5/path.h"
+	"allegro5/utf8.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\path.h
+	"allegro5/base.h"
+	"allegro5/utf8.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\utf8.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\bitmap_lock.h
+	"allegro5/bitmap.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\blender.h
+	"allegro5/base.h"
+	"allegro5/color.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\clipboard.h
+	"allegro5/base.h"
+	"allegro5/display.h"
+	"allegro5/utf8.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\display.h
+	"allegro5/bitmap.h"
+	"allegro5/color.h"
+	"allegro5/events.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\events.h
+	"allegro5/altime.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\config.h
+	"allegro5/file.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\cpu.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\debug.h
+	<assert.h>
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\drawing.h
+	"allegro5/color.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\error.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\fixed.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\fmaths.h
+	"allegro5/base.h"
+	"allegro5/fixed.h"
+	"allegro5/inline/fmaths.inl"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\inline\fmaths.inl
+	"allegro5/error.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\fshook.h
+	"allegro5/base.h"
+	"allegro5/file.h"
+	"allegro5/path.h"
+	<sys/types.h>
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\fullscreen_mode.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\haptic.h
+	"allegro5/base.h"
+	"allegro5/display.h"
+	"allegro5/events.h"
+	"allegro5/joystick.h"
+	"allegro5/keyboard.h"
+	"allegro5/mouse.h"
+	"allegro5/touch_input.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\joystick.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\keyboard.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+	"allegro5/keycodes.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\keycodes.h
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\mouse.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\touch_input.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\memory.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\monitor.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\mouse_cursor.h
+	"allegro5/base.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\render_state.h
+	"allegro5/base.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\shader.h
+	"allegro5/base.h"
+	"allegro5/transformations.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\transformations.h
+	"allegro5/display.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\system.h
+	"allegro5/config.h"
+	"allegro5/path.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\threads.h
+	"allegro5/altime.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\timer.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+
+1608346470 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\tls.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\alcompat.h
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\allegro_image.h
+	"allegro5/base.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\allegro_font.h
+	"allegro5/allegro.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\allegro_ttf.h
+	"allegro5/allegro.h"
+	"allegro5/allegro_font.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\allegro_primitives.h
+	<allegro5/allegro.h>
+
+1609851326 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\gamewindow.cpp
+	"GameWindow.h"
+	<iostream>
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\allegro_audio.h
+	"allegro5/allegro.h"
+
+1608346469 c:\users\Ã¹¶@¤å\hello-git\finalproject\allegro\include\allegro5\allegro_acodec.h
+	"allegro5/allegro.h"
+	"allegro5/allegro_audio.h"
+
+1608346469 allegro_audio.h"
+
 1609760643 c:\users\user\documents\nthu\finalproject\finalproject\terminateset.h
 	"GameWindow.h"
 
@@ -392,4 +778,42 @@
 1609763568 source:c:\users\user\documents\nthu\finalproject\finalproject\cursor.cpp
 	"Cursor.h"
 	<iostream>
+
+1609763568 3356cbe186e7e4902099af4627d7e2768fb48
+
+1609828883 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\cursor.cpp
+	"Cursor.h"
+	<iostream>
+
+1609828883 c:\users\Ã¹¶@¤å\hello-git\finalproject\cursor.h
+	"Circle.h"
+	"Object.h"
+
+1609828883 c:\users\Ã¹¶@¤å\hello-git\finalproject\terminateset.h
+	"GameWindow.h"
+
+1609833002 c:\users\Ã¹¶@¤å\hello-git\finalproject\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<vector>
+	"Object.h"
+	"Circle.h"
+
+1609828883 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\terminateset.cpp
+	"TerminateSet.h"
+
+1609833662 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\menu.cpp
+	"Menu.h"
+
+1609847768 c:\users\Ã¹¶@¤å\hello-git\finalproject\master.h
+	<iostream>
+	"NPC.h"
+	"MainCharacter.h"
+
+1609850783 source:c:\users\Ã¹¶@¤å\hello-git\finalproject\master.cpp
+	"Master.h"
 
