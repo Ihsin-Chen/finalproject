@@ -10,7 +10,7 @@ class Master : public NPC
     public:
     Master(int pos_x, int pos_y) : NPC(pos_x, pos_y)
     {
-        circle->r = 250;
+        circle->r = 150;
         IsMovingLeft = true;
 
         speed = 1;

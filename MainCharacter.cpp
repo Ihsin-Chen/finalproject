@@ -18,8 +18,16 @@ MainCharacter:: ~MainCharacter()
 void
 MainCharacter::Draw(int map_x)
 {
-    if (!IsAttacking) al_draw_bitmap(img, circle->x, circle->y, 0);
-    else al_draw_bitmap(attack_img, circle->x, circle->y, 0);
+    if (!IsAttacking)
+    {
+        if (IsMovingLeft)al_draw_bitmap(img, circle->x, circle->y, 0);
+        else al_draw_bitmap(img_right, circle->x, circle->y, 0);
+    }
+    else
+    {
+        if (IsMovingLeft)al_draw_bitmap(attack_img, circle->x, circle->y, 0);
+        else al_draw_bitmap(attack_img_right, circle->x, circle->y, 0);
+    }
 }
 
 bool
@@ -48,6 +56,7 @@ MainCharacter :: TriggerAttack(Girl* girl)
 void
 MainCharacter :: MoveLeft(int map_x)
 {
+    IsMovingLeft = true;
     speed = -7;
     if((map_x <= -2300 || map_x >=0) && circle->x >= 300) circle->x += speed;
 }
@@ -55,6 +64,7 @@ MainCharacter :: MoveLeft(int map_x)
 void
 MainCharacter::MoveRight(int map_x)
 {
+    IsMovingLeft = false;
     speed = 7;
     if((map_x <= -2300 || map_x >=0) && circle->x <= window_width-300) circle->x += speed;
 }

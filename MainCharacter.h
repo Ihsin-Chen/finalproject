@@ -39,7 +39,10 @@ protected:
 
     int attack_harm_point = 4, speed = 0;
     ALLEGRO_BITMAP *attack_img = al_load_bitmap("./character/boy_3_attack.png");
+    ALLEGRO_BITMAP *attack_img_right = al_load_bitmap("./character/boy_3_attack_right.png");
     ALLEGRO_BITMAP *img = al_load_bitmap("./character/boy_3.png");
+    ALLEGRO_BITMAP *img_right = al_load_bitmap("./character/boy_3_right.png");
+    bool IsMovingLeft = 1;
 };
 
 

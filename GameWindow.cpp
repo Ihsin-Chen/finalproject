@@ -398,6 +398,9 @@ GameWindow::game_reset()
     Girl_Set.clear();
     Enemy_Set.clear();
     menu->Reset();
+
+    HaveGoodLookingGirl = false;
+    HaveMaster = false;
 }
 
 void
