@@ -32,6 +32,8 @@ public:
     void MoveLeft(int map_x);
     void MoveRight(int map_x);
     void Pause();
+    void MedicineInitiate(int x) {attack_harm_point += x;}
+    void MedicineOver(int x) {attack_harm_point -= x;}
     bool Freeze = false;
     bool IsAttacking = false;
 

@@ -47,7 +47,8 @@ Menu::Menu()
 
     love = al_load_bitmap("./Tower/love.png");
 
-    menuFont = al_load_ttf_font("pirulen.ttf", 12, 0); // load font
+    menuFont = al_load_ttf_font("pirulen.ttf", 18, 0); // load font
+    Font_12 = al_load_ttf_font("pirulen.ttf", 12, 0);
 }
 
 Menu::~Menu()
@@ -84,6 +85,8 @@ Menu::Draw(int map_x)
 
     sprintf(buffer, "Score: %d", Score);
     al_draw_text(menuFont, al_map_rgb(255, 255, 255), offsetX, 20 + 2*gapY, 0, buffer);
+
+    al_draw_text(Font_12,al_map_rgb(222,78,69),100,30,0,"Press C to exchange the medicine with 300 score.");
 
     /*for(int i=0; i < Num_TowerType; i++)
     {

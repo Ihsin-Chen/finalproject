@@ -30,6 +30,8 @@
 #define GAME_NEXT_LEVEL 6
 #define GAME_EXIT 7
 
+#define medicine_price 300
+#define medicine_available 1000
 #define window_width 1200
 #define window_height 800
 #define map_width 3600
@@ -90,6 +92,7 @@ private:
     ALLEGRO_BITMAP *ground = NULL;
     ALLEGRO_BITMAP *start = NULL;
     ALLEGRO_BITMAP *cur = NULL;
+    ALLEGRO_BITMAP *medicine = NULL;
     const ALLEGRO_FONT *font;
 
     Menu *menu = NULL;
@@ -97,7 +100,7 @@ private:
     std::vector<Girl*> Girl_Set;
     std::vector<Enemy*> Enemy_Set;
 
-    int npc_CoolDown = 0;
+    int npc_CoolDown = 0, medicine_cooldown = 0;
     int npc_born_x = map_width, npc_born_y = 550;
     int map_x = 0, map_y = 0, map_speed;
     int Time_Left = TIME_LEFT;

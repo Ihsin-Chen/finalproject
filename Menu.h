@@ -37,6 +37,7 @@ public:
     void Change_Coin(int change) { Coin += change; }
     bool Subtract_HP(int escapeNum = 1);
     void Gain_Score(int);
+    void BuyMedicine(int price) {Score -= price ;}
 
     int getTowerCoin(int type) { return need_coin[type]; }
     int getScore() { return Score; }
@@ -47,6 +48,7 @@ private:
     std::vector<ALLEGRO_BITMAP*> menu_tower;
     ALLEGRO_BITMAP *love = NULL;
     ALLEGRO_FONT *menuFont;
+    ALLEGRO_FONT *Font_12;
     int HealthPoint = 10;
     int killedMonster = 0;
     int Score = 0;

@@ -91,6 +91,7 @@ GameWindow::game_init()
     font = al_load_ttf_font("pirulen.ttf",40,0);
     start = al_load_bitmap("./background/start_map.png");
     cur = al_load_bitmap("./character/cursor.png");
+    medicine = al_load_bitmap("./character/medicine.png");
 
     menu = new Menu();
 
@@ -161,6 +162,15 @@ GameWindow::process_event()
                     Game_Status = GAME_SETTING;
                     game_reset();
                     al_stop_timer(timer);
+                    break;
+                case ALLEGRO_KEY_C:
+                    if (medicine_cooldown == 0 && menu->getScore()>= medicine_price)
+                    {
+                        menu->BuyMedicine(medicine_price);
+                        maincharacter->MedicineInitiate(3);
+                        medicine_cooldown ++;
+                    }
+                    break;
             }
         }
         else if(event.type == ALLEGRO_EVENT_KEY_UP)
@@ -179,7 +189,8 @@ GameWindow::process_event()
 
             if (Enemy_Set.size() < 3 && menu->getScore() >= 300)
             {
-                e = create_enemy(0);
+                if (Enemy_Set.size() == 2) e = create_enemy(1);
+                else e = create_enemy(0);
                 Enemy_Set.push_back(e);
             }
             Girl_Set.push_back(n);
@@ -351,7 +362,7 @@ GameWindow::game_update()
                         menu->Change_Coin(10);
                         menu->Gain_Score(100);
                     }
-                    else                                      // IsGoodLooking
+                    else                        // IsGoodLooking
                     {
                         menu->Change_Coin(30);
                         menu->Gain_Score(300);
@@ -373,10 +384,20 @@ GameWindow::game_update()
         for(std::vector <Girl*>::iterator it = Girl_Set.begin(); it != Girl_Set.end(); ++it)
             (*it)->StatusReset();
     }
-    if(FreezeTime > 0)
-        FreezeTime--;
-    else
-        maincharacter->Freeze = false;
+
+    if(FreezeTime > 0) FreezeTime--;
+    else maincharacter->Freeze = false;
+
+    if (medicine_cooldown > 0 && medicine_cooldown <= medicine_available)
+    {
+        medicine_cooldown ++;
+        if (medicine_cooldown == medicine_available)
+        {
+            maincharacter->MedicineOver(3);
+            medicine_cooldown == 0;
+        }
+    }
+
     Time_Left--;
     return GAME_CONTINUE;
 }
@@ -424,6 +445,10 @@ GameWindow::draw_running_map()
     if(HaveMaster) master->Draw(-map_x);
 
     al_draw_filled_rectangle(1150, 100 + (TIME_LEFT - Time_Left) * 600 / TIME_LEFT, 1180, 700, al_map_rgb(164,30,34));
+
+    if (medicine_cooldown > 0 )
+    al_draw_filled_rectangle(60, 55, 60 + (medicine_available - medicine_cooldown)/5, 75, al_map_rgb(164,30,34));
+    al_draw_bitmap(medicine, 10, 10, 0);
 
     menu->Draw(-map_x);
 
