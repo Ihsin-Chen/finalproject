@@ -394,7 +394,7 @@ GameWindow::game_update()
         if (medicine_cooldown == medicine_available)
         {
             maincharacter->MedicineOver(3);
-            medicine_cooldown == 0;
+            medicine_cooldown = 0;
         }
     }
 

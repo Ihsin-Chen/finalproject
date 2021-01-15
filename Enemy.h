@@ -19,8 +19,8 @@ class Enemy : public NPC
             speed = 2;
             if (!(npc_img = al_load_bitmap("./Character/boy_1.png")))
             std::cout << " Failed to draw boss enemy." << std::endl;
-            npc_attack = al_load_bitmap("./Character/boy_1.png");
-            npc_prepare = al_load_bitmap("./Character/boy_1.png");
+            npc_attack = al_load_bitmap("./Character/boy_1_attack.png");
+            npc_prepare = al_load_bitmap("./Character/boy_1_prepare.png");
         }
         else
         {
