@@ -197,7 +197,7 @@ GameWindow::process_event()
             npc_CoolDown = 0;
         }
 
-        if(!(menu->getScore() % 700)&& menu->getScore() && !HaveMaster)
+        if(!(menu->getScore() % 100)&& menu->getScore() && !HaveMaster)
         {
             master = create_master();
             HaveMaster = true;
@@ -322,8 +322,11 @@ GameWindow::game_update()
     {
         if(master->DetectAttack(maincharacter, map_x))
         {
-        master->TriggerAttack(maincharacter);
-        FreezeTime = 100;
+            if (key_state[ALLEGRO_KEY_SPACE])
+            {
+                master->TriggerAttack(maincharacter);
+                FreezeTime = 100;
+            }
         }
     }
 
@@ -385,7 +388,11 @@ GameWindow::game_update()
     }
 
     if(FreezeTime > 0) FreezeTime--;
-    else maincharacter->Freeze = false;
+    else if (master != NULL)
+    {
+        maincharacter->Freeze = false;
+        master->StatusReset();
+    }
 
     if (medicine_cooldown > 0 && medicine_cooldown <= medicine_available)
     {

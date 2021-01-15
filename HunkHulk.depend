@@ -1145,7 +1145,7 @@
 1608346470 c:\users\user\documents\nthu\finalproject\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1610681574 c:\users\user\documents\nthu\finalproject\maincharacter.h
+1610689458 c:\users\user\documents\nthu\finalproject\maincharacter.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -1161,11 +1161,11 @@
 	<iostream>
 	"NPC.h"
 
-1610687884 source:c:\users\user\documents\nthu\finalproject\gamewindow.cpp
+1610691296 source:c:\users\user\documents\nthu\finalproject\gamewindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1610682615 c:\users\user\documents\nthu\finalproject\gamewindow.h
+1610691296 c:\users\user\documents\nthu\finalproject\gamewindow.h
 	<stdio.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -1206,7 +1206,7 @@
 	"Object.h"
 	"Circle.h"
 
-1609860657 c:\users\user\documents\nthu\finalproject\master.h
+1610690958 c:\users\user\documents\nthu\finalproject\master.h
 	<iostream>
 	"NPC.h"
 	"MainCharacter.h"
@@ -1217,12 +1217,12 @@
 1609170758 source:c:\users\user\documents\nthu\finalproject\main.cpp
 	"GameWindow.h"
 
-1609859975 source:c:\users\user\documents\nthu\finalproject\maincharacter.cpp
+1610690056 source:c:\users\user\documents\nthu\finalproject\maincharacter.cpp
 	"MainCharacter.h"
 	"GameWindow.h"
 	"Circle.h"
 
-1609850784 source:c:\users\user\documents\nthu\finalproject\master.cpp
+1610691387 source:c:\users\user\documents\nthu\finalproject\master.cpp
 	"Master.h"
 
 1610683455 source:c:\users\user\documents\nthu\finalproject\menu.cpp

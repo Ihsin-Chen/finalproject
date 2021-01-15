@@ -44,6 +44,8 @@ protected:
     ALLEGRO_BITMAP *attack_img_right = al_load_bitmap("./character/boy_3_attack_right.png");
     ALLEGRO_BITMAP *img = al_load_bitmap("./character/boy_3.png");
     ALLEGRO_BITMAP *img_right = al_load_bitmap("./character/boy_3_right.png");
+    ALLEGRO_BITMAP *freeze_img = al_load_bitmap("./character/boy_3_freeze_left.png");
+    ALLEGRO_BITMAP *freeze_img_right = al_load_bitmap("./character/boy_3_freeze_right.png");
     bool IsMovingLeft = 1;
 };
 

@@ -8,7 +8,12 @@ Master :: Draw(int map_x)
 
     int x = circle->x - map_x;
 
-    al_draw_bitmap(npc_img, x , circle->y, 0);
+    if (IsAttacking)
+    {
+        cout << "draw" << endl;
+        al_draw_bitmap(npc_attack, x , circle->y, 0);
+    }
+    else al_draw_bitmap(npc_img, x , circle->y, 0);
 
 }
 
@@ -28,6 +33,7 @@ void
 Master :: TriggerAttack(MainCharacter *maincharacter)
 {
     maincharacter->Freeze = true;
+    IsAttacking = true;
 }
 
 

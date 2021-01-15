@@ -18,7 +18,12 @@ MainCharacter:: ~MainCharacter()
 void
 MainCharacter::Draw(int map_x)
 {
-    if (!IsAttacking)
+    if(Freeze)
+    {
+        if (IsMovingLeft)al_draw_bitmap(freeze_img, circle->x, circle->y, 0);
+        else al_draw_bitmap(freeze_img_right, circle->x, circle->y, 0);
+    }
+    else if (!IsAttacking)
     {
         if (IsMovingLeft)al_draw_bitmap(img, circle->x, circle->y, 0);
         else al_draw_bitmap(img_right, circle->x, circle->y, 0);

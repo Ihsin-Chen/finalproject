@@ -16,6 +16,9 @@ class Master : public NPC
         speed = 1;
         if(!(npc_img = al_load_bitmap("./Character/army.png")))
             std::cout << "Failed to draw the master." << endl;
+
+        if(!(npc_attack = al_load_bitmap("./Character/army_attack.png")))
+            std::cout << "Failed to draw the master_attack." << endl;
     }
 
     void Draw(int) override;

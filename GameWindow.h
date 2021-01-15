@@ -109,7 +109,7 @@ private:
     int FreezeTime = 0;
 
     //+++
-    Master *master;
+    Master *master = NULL;
     MainCharacter* maincharacter;
     TerminateSet* terminate;
     Cursor* cursor;
