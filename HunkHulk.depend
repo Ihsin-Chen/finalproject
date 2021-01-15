@@ -836,7 +836,7 @@
 1609512212 source:c:\users\user\documents\nthu\finalproject\enemy.cpp
 	"Enemy.h"
 
-1609512212 c:\users\user\documents\nthu\finalproject\enemy.h
+1610687657 c:\users\user\documents\nthu\finalproject\enemy.h
 	<iostream>
 	"NPC.h"
 	"MainCharacter.h"
@@ -1145,7 +1145,7 @@
 1608346470 c:\users\user\documents\nthu\finalproject\allegro\include\allegro5\allegro_primitives.h
 	<allegro5/allegro.h>
 
-1609859944 c:\users\user\documents\nthu\finalproject\maincharacter.h
+1610681574 c:\users\user\documents\nthu\finalproject\maincharacter.h
 	<stdio.h>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -1161,11 +1161,11 @@
 	<iostream>
 	"NPC.h"
 
-1609851328 source:c:\users\user\documents\nthu\finalproject\gamewindow.cpp
+1610687884 source:c:\users\user\documents\nthu\finalproject\gamewindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1609850078 c:\users\user\documents\nthu\finalproject\gamewindow.h
+1610682615 c:\users\user\documents\nthu\finalproject\gamewindow.h
 	<stdio.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -1195,7 +1195,7 @@
 1609828884 c:\users\user\documents\nthu\finalproject\terminateset.h
 	"GameWindow.h"
 
-1609833004 c:\users\user\documents\nthu\finalproject\menu.h
+1610683337 c:\users\user\documents\nthu\finalproject\menu.h
 	<stdio.h>
 	<stdlib.h>
 	<allegro5/allegro.h>
@@ -1225,7 +1225,7 @@
 1609850784 source:c:\users\user\documents\nthu\finalproject\master.cpp
 	"Master.h"
 
-1609833664 source:c:\users\user\documents\nthu\finalproject\menu.cpp
+1610683455 source:c:\users\user\documents\nthu\finalproject\menu.cpp
 	"Menu.h"
 
 1609512212 source:c:\users\user\documents\nthu\finalproject\npc.cpp

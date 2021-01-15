@@ -350,7 +350,6 @@ GameWindow::game_update()
                 {
                     if ((*itt)->DetectAttack(*it,map_x))
                     {
-                        std :: cout << "Attack " << std :: endl;
                         (*itt)->TriggerAttack(*it);
                     }
                 }
