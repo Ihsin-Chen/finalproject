@@ -206,15 +206,17 @@ GameWindow::process_event()
         if (Time_Left <= 0)
         {
             Game_Status = GAME_TERMINATE;
-            terminate = new TerminateSet(menu->getScore());
+            terminate = new TerminateSet(menu->getScore(), Hunt_Goodlooking, Hunt_Normal);
         }
 
     }
 
     if (Game_Status == GAME_TERMINATE)
     {
-        draw_terminate_map();
-        al_stop_timer(timer);
+        if(event.type == ALLEGRO_EVENT_TIMER)
+        {
+            if(event.timer.source == timer) draw_terminate_map();
+        }
 
         if (event.type == ALLEGRO_EVENT_KEY_DOWN)
         {
@@ -222,6 +224,7 @@ GameWindow::process_event()
             switch(event.keyboard.keycode)
             {
                 case ALLEGRO_KEY_ENTER:
+                    al_stop_timer(timer);
                     game_reset();
                     Game_Status = GAME_SETTING;
                     break;
@@ -280,9 +283,6 @@ GameWindow::game_begin()
 //<<<<<<< HEAD
     al_start_timer(timer);
 
-//=======
-    //al_start_timer(timer);
-//>>>>>>> d183356cbe186e7e4902099af4627d7e2768fb48
 }
 
 int
@@ -363,12 +363,14 @@ GameWindow::game_update()
                     {
                         menu->Change_Coin(10);
                         menu->Gain_Score(100);
+                        Hunt_Normal ++;
                     }
                     else                        // IsGoodLooking
                     {
                         menu->Change_Coin(30);
                         menu->Gain_Score(300);
                         HaveGoodLookingGirl = false;
+                        Hunt_Goodlooking ++;
                     }
                     Girl_Set.erase(it);
                     --it;
@@ -425,6 +427,7 @@ GameWindow::game_reset()
     Girl_Set.clear();
     Enemy_Set.clear();
     menu->Reset();
+    Hunt_Goodlooking = 0, Hunt_Normal = 0;
 
     HaveGoodLookingGirl = false;
     HaveMaster = false;

@@ -1161,11 +1161,11 @@
 	<iostream>
 	"NPC.h"
 
-1610691296 source:c:\users\user\documents\nthu\finalproject\gamewindow.cpp
+1610695457 source:c:\users\user\documents\nthu\finalproject\gamewindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1610691296 c:\users\user\documents\nthu\finalproject\gamewindow.h
+1610695142 c:\users\user\documents\nthu\finalproject\gamewindow.h
 	<stdio.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -1192,8 +1192,16 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_audio.h"
 
-1609828884 c:\users\user\documents\nthu\finalproject\terminateset.h
+1610695142 c:\users\user\documents\nthu\finalproject\terminateset.h
 	"GameWindow.h"
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<vector>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
 
 1610683337 c:\users\user\documents\nthu\finalproject\menu.h
 	<stdio.h>
@@ -1232,7 +1240,7 @@
 	"NPC.h"
 	"GameWindow.h"
 
-1609828884 source:c:\users\user\documents\nthu\finalproject\terminateset.cpp
+1610695581 source:c:\users\user\documents\nthu\finalproject\terminateset.cpp
 	"TerminateSet.h"
 
 1609170758 source:c:\users\user\documents\nthu\final\circle.cpp

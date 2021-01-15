@@ -107,6 +107,7 @@ private:
     bool HaveGoodLookingGirl = false;
     bool HaveMaster = false;
     int FreezeTime = 0;
+    int Hunt_Goodlooking = 0, Hunt_Normal = 0;
 
     //+++
     Master *master = NULL;
